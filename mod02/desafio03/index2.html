@@ -1,0 +1,48 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <input type="text" placeholder="Digite aqui seu nome" @keydown.enter='alterarValor($event)'>
+    <input type="text" placeholder="Digite aqui seu sobrenome" @keydown.enter='alterarValor2($event)'>
+    <p>
+        {{Nome}} {{sobreNome}}
+    </p>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            Nome: "",
+            sobreNome: ""
+        },
+
+        methods:{
+            alterarValor(event){
+                return this.Nome = event.target.value
+            },
+
+            alterarValor2(event){
+                return this.sobreNome = event.target.value
+            }
+        },
+
+        watch:{
+            Nome(novo, antigo){
+                if(this.Nome != "Estudando Vue.js"){
+                    console.log("Titulo Alterado!")
+                    console.log(this.titulo)
+                    console.log(novo, antigo)
+                }
+            },
+
+            sobreNome(novo, antigo){
+                if(this.sobreNome != "Estudando Vue.js"){
+                    console.log("Titulo Alterado!")
+                    console.log(this.titulo)
+                    console.log(novo, antigo)
+                }
+            }
+        }
+    })
+
+
+</script>
